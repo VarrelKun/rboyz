@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Upload Photo</title>
+</head>
+<body>
+    <h1>Upload Photo</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="title">Photo Title:</label>
+        <input type="text" name="title" id="title" required>
+        <label for="photo">Choose Photo:</label>
+        <input type="file" name="photo" id="photo" required>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
+

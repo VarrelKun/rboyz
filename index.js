@@ -9,9 +9,9 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(express.static('public'));
+app.use(express.static('./views'));
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('./uploads'));
 app.set('view engine', 'html');
 
 // MongoDB Connection

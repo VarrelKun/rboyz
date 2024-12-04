@@ -41,7 +41,7 @@ const upload = multer({ storage });
 // Routes
 app.get('/', async (req, res) => {
     const photos = await Photo.find();
-    res.render('gallery', { photos });
+    res.render('index', { photos });
 });
 
 app.get('/upload', (req, res) => {

@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(express.static('./views'));
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('./uploads'));
 app.set('view engine', 'html');
@@ -38,11 +38,14 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
 // Routes
-app.get('/', async (req, res) => {
+/*app.get('/', async (req, res) => {
     const photos = await Photo.find();
     res.render('gallery', { photos });
-});
+});*/
 
 app.get('/upload', (req, res) => {
     res.render('upload');

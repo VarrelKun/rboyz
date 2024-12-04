@@ -42,10 +42,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 // Routes
-/*app.get('/', async (req, res) => {
+app.get('/', async (req, res) => {
     const photos = await Photo.find();
     res.render('gallery', { photos });
-});*/
+});
 
 app.get('/upload', (req, res) => {
     res.render('upload');

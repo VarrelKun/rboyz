@@ -13,7 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Konfigurasi Multer untuk upload file
 const storage = multer.diskStorage({
-  destination: './public/uploads/',
+  destination: (req, file, cb) => {
+    // Gunakan '/tmp' di Vercel untuk penyimpanan sementara
+    cb(null, '/tmp');
+  },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
   },

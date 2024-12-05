@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>Gallery Showcase</title>
+</head>
+<body>
+  <h1>Gallery Showcase</h1>
+  <div id="gallery-container"></div>
+  <a href="/upload.html">Upload Photo</a>
+
+  <script>
+    const galleryContainer = document.getElementById('gallery-container');
+
+    async function loadGallery() {
+      const response = await fetch('/gallery');
+      const images = await response.json();
+      galleryContainer.innerHTML = images
+        .map(
+          (image) =>
+            `<div class="gallery-item">
+              <img src="/uploads/${image.filename}" alt="${image.originalName}" />
+              <p>${image.originalName.customName}</p>
+            </div>`
+        )
+        .join('');
+    }
+
+    loadGallery();
+  </script>
+</body>
+</html>

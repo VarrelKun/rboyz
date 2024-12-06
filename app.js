@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Fungsi untuk mendapatkan data galeri
-const galleryPath = '/tmp/gallery.json';
+const galleryPath = '/data/gallery.json';
 const getGallery = () => {
   if (fs.existsSync(galleryPath)) {
     return JSON.parse(fs.readFileSync(galleryPath));
@@ -58,7 +58,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
   const newImage = {
     id: Date.now(),
     filename: req.file.filename,
-    originalName: req.file.originalname,
+    originalName: req.body,
     title: title || 'Untitled',
   };
   gallery.push(newImage);

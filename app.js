@@ -10,8 +10,8 @@ const path = require('path');
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Konfigurasi Multer untuk upload file
 const storage = multer.diskStorage({

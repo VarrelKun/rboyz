@@ -5,10 +5,10 @@ const path = require('path');
 
 const app = express();
 const PORT = 3000;
-
+const path = require('path');
 // Middleware
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 // Konfigurasi Multer untuk upload file
@@ -28,6 +28,10 @@ const galleryPath = './data/gallery.json';
 const getGallery = () => JSON.parse(fs.readFileSync(galleryPath));
 
 // Routes
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/gallery', (req, res) => {
   const gallery = getGallery();
   res.json(gallery);

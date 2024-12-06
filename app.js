@@ -46,7 +46,7 @@ app.get('/', async (req, res) => {
     gallery.forEach((image) => {
       html += `
         <div>
-          <img src="/tmp/${image.filename}" alt="${image.originalName}" style="width:200px;" />
+          <img src="/tmp/${image.originalName}" alt="${image.filename}" style="width:200px;" />
           <p>${image.title}</p>
         </div>
       `;

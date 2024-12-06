@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
@@ -9,7 +10,8 @@ const path = require('path');
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Konfigurasi Multer untuk upload file
 const storage = multer.diskStorage({

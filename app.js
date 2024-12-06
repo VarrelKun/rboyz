@@ -25,13 +25,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Konfigurasi Multer untuk upload file
+// Konfigurasi Multer untuk upload file (gunakan /tmp di Vercel)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, 'public', 'uploads');
-    if (!fs.existsSync(uploadPath)) {
-      fs.mkdirSync(uploadPath, { recursive: true });
-    }
+    const uploadPath = '/tmp'; // Simpan di direktori sementara /tmp
     cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
@@ -80,6 +77,9 @@ app.get('/gallery', async (req, res) => {
 app.post('/upload', upload.single('image'), async (req, res) => {
   try {
     const { title } = req.body;
+    const tmpFilePath = path.join('/tmp', req.file.filename);
+
+    // Simpan data gambar ke database
     const newImage = new Gallery({
       title: title || 'Untitled',
       filename: req.file.filename,
@@ -88,6 +88,8 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 
     await newImage.save();
     console.log('Uploaded image:', newImage);
+
+    // File dapat diunggah ke storage cloud jika diperlukan di sini.
     res.redirect('/');
   } catch (err) {
     console.error('Upload error:', err.message);

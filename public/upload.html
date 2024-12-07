@@ -9,6 +9,8 @@
 <body>
   <h1>Upload Photo</h1>
   <form action="/upload" method="POST" enctype="multipart/form-data">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
   <label for="customName">Enter your name:</label>
   <input type="text" id="customName" name="customName" placeholder="Your Name" required />
   <label for="image">Choose an image:</label>

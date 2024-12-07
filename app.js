@@ -13,6 +13,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 // Definisikan model untuk Galeri
 const gallerySchema = new mongoose.Schema({
   title: String,
+  username: String,
   filename: String,
   originalName: String,
   uploadedAt: { type: Date, default: Date.now },
@@ -82,6 +83,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
     // Simpan data gambar ke database
     const newImage = new Gallery({
       title: title || 'Untitled',
+      username: req.body,
       filename: req.file.filename,
       originalName: req.file.originalname,
     });

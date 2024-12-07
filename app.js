@@ -6,17 +6,16 @@ const fs = require('fs');
 const app = express();
 
 // Koneksi ke MongoDB menggunakan Mongoose
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://kulikomiss:hPrLbvYmS89yDYuu@rboyz.s0ymm.mongodb.net/?retryWrites=true&w=majority&appName=rboyz", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 // Definisikan model untuk Galeri
 const gallerySchema = new mongoose.Schema({
-  title: String,
-  username: String,
-  filename: String,
-  originalName: String,
-  uploadedAt: { type: Date, default: Date.now },
+  username: { type: String, required: true },
+  caption: { type: String, required: true },
+  pfpUrl: { type: String, required: true },
+  imgUrl: { type: String, required: true },
 });
 
 const Gallery = mongoose.model('Gallery', gallerySchema);
@@ -77,16 +76,10 @@ app.get('/gallery', async (req, res) => {
 // Rute upload untuk mengunggah gambar
 app.post('/upload', upload.single('image'), async (req, res) => {
   try {
-    const { title } = req.body;
-    const tmpFilePath = path.join('/tmp', req.file.filename);
+    const { username, caption, pfpUrl, imgUrl } = req.body;
 
     // Simpan data gambar ke database
-    const newImage = new Gallery({
-      title: title || 'Untitled',
-      username: req.body,
-      filename: req.file.filename,
-      originalName: req.file.originalname,
-    });
+    const newImage = new Gallery({ username, caption, pfpUrl, imgUrl });
 
     await newImage.save();
     console.log('Uploaded image:', newImage);

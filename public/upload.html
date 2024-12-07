@@ -7,17 +7,25 @@
   <title>Upload Photo</title>
 </head>
 <body>
+<div class="container">
   <h1>Upload Photo</h1>
   <form action="/upload" method="POST" enctype="multipart/form-data">
   <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required>
-  <label for="customName">Enter your name:</label>
-  <input type="text" id="customName" name="customName" placeholder="Your Name" required />
-  <label for="image">Choose an image:</label>
-  <input type="file" id="image" name="image" required />
-  <button type="submit">Upload</button>
+      <input type="text" id="username" name="username" required>
+
+      <label for="caption">Caption:</label>
+      <input type="text" id="caption" name="caption" required>
+
+      <label for="pfpUrl">Profile Picture URL:</label>
+      <input type="url" id="pfpUrl" name="pfpUrl" required>
+
+      <label for="imgUrl">Image URL:</label>
+      <input type="url" id="imgUrl" name="imgUrl" required>
+
+      <button type="submit">Upload</button>
 </form>
   <a href="/">Back to Gallery</a>
+  </div>
 </body>
 </html>
 

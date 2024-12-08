@@ -668,7 +668,7 @@ body {
 
 .seller-card .card-banner {
   position: relative;
-  background-color: var(--oxford-blue);
+  background-color: #400303;
 }
 
 .seller-card .card-banner img { border-radius: inherit; }

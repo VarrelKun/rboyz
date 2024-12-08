@@ -92,7 +92,7 @@ app.get('/gallery', async (req, res) => {
 });
 
 // Rute untuk mendapatkan daftar member
-app.get('/addmem', async (req, res) => {
+app.get('/api/members', async (req, res) => {
   try {
     const members = await AddMem.find();
     res.json(members);

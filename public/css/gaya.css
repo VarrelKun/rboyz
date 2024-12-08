@@ -664,6 +664,7 @@ body {
   align-items: center;
   gap: 12px;
   padding: 12px;
+  background-color: #400303;
 }
 
 .seller-card .card-banner {
@@ -678,7 +679,7 @@ body {
   top: -4px;
   right: -8px;
   font-size: 2rem;
-  color: #400303;
+  color: var(--green-cyan);
 }
 
 .seller-card .user-name { margin-block-start: 2px; }

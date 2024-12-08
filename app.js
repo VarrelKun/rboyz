@@ -20,6 +20,16 @@ const gallerySchema = new mongoose.Schema({
 
 const Gallery = mongoose.model('Gallery', gallerySchema);
 
+// Definisikan model untuk addmem
+const addmemSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  name: { type: String, required: true },
+  pfp: { type: String, required: true }, // URL foto profil
+});
+
+const AddMem = mongoose.model('AddMem', addmemSchema);
+
+
 // Middleware untuk file statis
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -81,6 +91,16 @@ app.get('/gallery', async (req, res) => {
   }
 });
 
+// Rute untuk mendapatkan daftar member
+app.get('/addmem', async (req, res) => {
+  try {
+    const members = await AddMem.find();
+    res.json(members);
+  } catch (err) {
+    res.status(500).send('Failed to fetch members');
+  }
+});
+
 // Rute upload untuk mengunggah gambar
 app.post('/upload', upload.single('image'), async (req, res) => {
   try {
@@ -97,6 +117,27 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   } catch (err) {
     console.error('Upload error:', err.message);
     res.status(500).send('Something went wrong!');
+  }
+});
+// Rute untuk menambahkan member ke koleksi addmem
+app.post('/addmem', async (req, res) => {
+  try {
+    const { username, name, pfp } = req.body;
+
+    // Validasi input
+    if (!username || !name || !pfp) {
+      return res.status(400).send('All fields are required: username, name, and pfp');
+    }
+
+    // Simpan data ke koleksi addmem
+    const newMember = new AddMem({ username, name, pfp });
+    await newMember.save();
+
+    console.log('Added new member:', newMember);
+    res.redirect('/member');
+  } catch (err) {
+    console.error('Error adding member:', err.message);
+    res.status(500).send('Failed to add member');
   }
 });
 

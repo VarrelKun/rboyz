@@ -22,7 +22,7 @@ const Gallery = mongoose.model('Gallery', gallerySchema);
 
 // Definisikan model untuk addmem
 const addmemSchema = new mongoose.Schema({
-  username: { type: String, required: true },
+  role: { type: String, required: true },
   name: { type: String, required: true },
   pfp: { type: String, required: true }, // URL foto profil
 });
@@ -122,15 +122,15 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 // Rute untuk menambahkan member ke koleksi addmem
 app.post('/addmem', async (req, res) => {
   try {
-    const { username, name, pfp } = req.body;
+    const { role, name, pfp } = req.body;
 
     // Validasi input
-    if (!username || !name || !pfp) {
+    if (!role || !name || !pfp) {
       return res.status(400).send('All fields are required: username, name, and pfp');
     }
 
     // Simpan data ke koleksi addmem
-    const newMember = new AddMem({ username, name, pfp });
+    const newMember = new AddMem({ role, name, pfp });
     await newMember.save();
 
     console.log('Added new member:', newMember);

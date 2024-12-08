@@ -1,85 +1,85 @@
 async function loadGallery() {
-      try {
-        const response = await fetch('/gallery');
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+  try {
+    const response = await fetch('/gallery');
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
 
-        const gallery = await response.json();
-        const galleryContainer = document.getElementById('gallery-container');
-        const showMoreBtn = document.getElementById('show-more-btn');
+    const gallery = await response.json();
+    const galleryContainer = document.getElementById('gallery-container');
+    const showMoreBtn = document.getElementById('show-more-btn');
 
-        let itemsToShow = 4; // Initial number of items to show
-        let currentIndex = 0;
+    let itemsToShow = 4; // Jumlah awal item yang ditampilkan
+    let currentIndex = 0; // Indeks item saat ini
 
-        function renderGallery() {
-          const items = gallery.slice(0, currentIndex + itemsToShow);
-          galleryContainer.innerHTML = items
-            .map(
-              (item) => `
-                <li>
-                  <div class="discover-card card">
-                    <div class="card-banner img-holder" style="--width: 500; --height: 500;">
-                      <img src="${item.imgUrl}" width="500" height="500" loading="lazy" alt="${item.username}" class="img-cover">
-                    </div>
-                    <div class="card-profile">
-                      <img src="https://files.catbox.moe/z8uqjv.jpg" width="32" height="32" loading="lazy" alt="rb profile" class="img">
-                      <a class="link:hover">@ ${item.username}</a>
-                    </div>
-                    
-                    <h3 class="title-sm card-title">
-                  
-                </h3>
-                
-                    <div class="card-meta">
-                      <div class="card-price"><span class="span">${item.caption}</span></div>
-                      <p>redzöne</p>
-                    </div>
-                  </div>
-                </li>
-              `
-            )
-            .join('');
+    // Fungsi untuk merender galeri
+    function renderGallery() {
+      const items = gallery.slice(0, currentIndex + itemsToShow);
+      galleryContainer.innerHTML = items
+        .map(
+          (item) => `
+            <li>
+              <div class="discover-card card">
+                <div class="card-banner img-holder" style="--width: 500; --height: 500;">
+                  <img src="${item.imgUrl}" width="500" height="500" loading="lazy" alt="${item.role}" 
+                       class="img-cover" onclick="openModal('${item.imgUrl}', '${item.caption}')">
+                </div>
+                <div class="card-profile">
+                  <img src="${item.pfpUrl}" width="32" height="32" loading="lazy" alt="${item.role}" class="img">
+                  <a class="link:hover">@ ${item.role}</a>
+                </div>
+                <h3 class="title-sm card-title">${item.caption}</h3>
+                <div class="card-meta">
+                  <div class="card-price"><span class="span">${item.caption}</span></div>
+                  <p>redzöne</p>
+                </div>
+              </div>
+            </li>
+          `
+        )
+        .join('');
 
-          // Handle "No More" state
-          if (currentIndex + itemsToShow >= gallery.length) {
-            showMoreBtn.textContent = 'No More';
-            showMoreBtn.disabled = true;
-            showMoreBtn.style.cursor = 'not-allowed';
-          }
-        }
-
-        renderGallery();
-
-        showMoreBtn.addEventListener('click', () => {
-          currentIndex += itemsToShow;
-          renderGallery();
-        });
-      } catch (error) {
-        console.error('Error loading gallery:', error);
-        alert('Failed to load gallery. Please try again later.');
+      // Handle "No More" state
+      if (currentIndex + itemsToShow >= gallery.length) {
+        showMoreBtn.textContent = 'No More';
+        showMoreBtn.disabled = true;
+        showMoreBtn.style.cursor = 'not-allowed';
       }
     }
 
-    document.addEventListener('DOMContentLoaded', loadGallery);
-    
-    // Function to open the modal with image and caption
+    // Panggilan pertama untuk merender galeri
+    renderGallery();
+
+    // Event listener untuk tombol "Tampilkan Lebih Banyak"
+    showMoreBtn.addEventListener('click', () => {
+      currentIndex += itemsToShow; // Perbarui indeks saat ini
+      renderGallery();
+    });
+  } catch (error) {
+    console.error('Error loading gallery:', error);
+    alert('Failed to load gallery. Please try again later.');
+  }
+}
+
+// Fungsi untuk memuat galeri saat DOM sudah siap
+document.addEventListener('DOMContentLoaded', loadGallery);
+
+// Fungsi untuk membuka modal dengan gambar dan caption
 function openModal(imageUrl, caption) {
-  // Set the modal image source and caption text
   document.getElementById('modalImage').src = imageUrl;
   document.getElementById('modalCaption').innerText = caption;
 
-  // Show the modal
+  // Tampilkan modal
   document.getElementById('imageModal').style.display = 'flex';
 }
 
-// Function to close the modal
+// Fungsi untuk menutup modal
 document.getElementById('closeModal').addEventListener('click', function () {
   document.getElementById('imageModal').style.display = 'none';
 });
 
-// Close the modal if the user clicks outside of the modal content
-window.onclick = function(event) {
+// Tutup modal jika pengguna mengklik di luar konten modal
+window.onclick = function (event) {
   if (event.target == document.getElementById('imageModal')) {
     document.getElementById('imageModal').style.display = 'none';
   }

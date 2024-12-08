@@ -16,16 +16,16 @@
 	
   <header class="header" data-header>
     <div class="container">
-      <a href="#">
+      <a href="/">
         <img src="https://files.catbox.moe/jebonz.svg" width="40" height="40" alt="Rboyz home" class="logo-small">
         <img src="https://files.catbox.moe/jnq4hw.svg" width="126" height="28" alt="Rboyz home" class="logo">
       </a>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
-          <li><a href="#" class="navbar-link label-lg link:hover">Home</a></li>
-          <li><a href="#" class="navbar-link label-lg link:hover">Collection</a></li>
-          <li><a href="#" class="navbar-link label-lg link:hover">Members</a></li>
+          <li><a href="/" class="navbar-link label-lg link:hover">Home</a></li>
+          <li><a href="/collection" class="navbar-link label-lg link:hover">Collection</a></li>
+          <li><a href="/member" class="navbar-link label-lg link:hover">Members</a></li>
         </ul>
       </nav>
 
@@ -38,23 +38,166 @@
     </div>
   </header>
   
-  <section class="section top-collection" aria-labelledby="collection-label">
-      	<div class="container"> 
-      	</div>
+      <!-- 
+        - #HERO
+      -->
+      	
+  <section class="section hero" aria-label="home">
+        <div class="container">
+<h1 class="headline-lg hero-title"> <span class="span">REDZÖNE.</span>
+</h1>
+          <h1 class="headline-lg hero-title">
+Design without<span class="span"> Limits.</span>
+          </h1>
+
+          <p class="section-text body-lg">
+            Discover the latest design inspiration by our members at Redzöne!
+          </p>
+          <a href="/rec" class="btn">Join Now</a>
+          
+        </div>
+        
       </section>
-      
-  <main>
-    <section class="section discover" aria-labelledby="discover-label">
-      <div class="container">
-        <h2 class="headline-md section-title text-center" id="discover-label">Explore Our Collection</h2>
-        <ul class="grid-list" id="gallery-container"></ul>
-        <button id="show-more-btn" class="btn-link">Show More</button>
-      </div>
-    </section>
-  </main>
-  
-  <!-- Modal for Image Preview -->
-  <div id="imageModal" class="modal">
+  <!-- 
+        - #HERO
+      -->
+      	
+      <section class="section top-collection" aria-labelledby="collection-label">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="headline-md section-title text-center" id="collection-label">Top Collections.</h2>
+
+            <a href="/collection" class="btn-link link:hover">
+              <span class="span">See More</span>
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+
+          <div class="slider" data-slider>
+
+            <ul class="slider-container" data-slider-container>
+
+<!--#1-->
+	<li class="slider-item">
+            <div class="collection-card card" data-image="https://files.catbox.moe/a31ev9.jpg" data-caption="Mushroom House">
+              <figure class="card-banner img-holder" style="--width: 500; --height: 500;">
+                <img src="https://files.catbox.moe/a31ev9.jpg" width="500" height="500" loading="lazy"
+                  alt="Illustration" class="img-cover">
+              </figure>
+              <div class="card-content">
+                <div class="card-profile">
+                  <img src="https://files.catbox.moe/f25knl.jpg" width="64" height="64" loading="lazy" alt="zenno">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="title-md card-title">
+                  <a class="link:h">Mushroom House</a>
+                </h3>
+                <p class="label-md card-author">by <a class="link">@zennochive</a></p>
+              </div>
+            </div>
+          </li>
+<!--#1-->
+           <li class="slider-item">
+            <div class="collection-card card" data-image="https://files.catbox.moe/4bffkt.jpg" data-caption="dull colors in a colorfull world.">
+              <figure class="card-banner img-holder" style="--width: 500; --height: 500;">
+                <img src="https://files.catbox.moe/4bffkt.jpg" width="500" height="500" loading="lazy"
+                  alt="by Hika" class="img-cover">
+              </figure>
+              <div class="card-content">
+                <div class="card-profile">
+                  <img src="https://files.catbox.moe/0y08dw.jpg" width="64" height="64" loading="lazy" alt="hika">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="title-md card-title">
+                  <a class="link:h">dull colors in a colorfull world.</a>
+                </h3>
+                <p class="label-md card-author">by <a class="link">@twobrains1heart</a></p>
+              </div>
+            </div>
+          </li>
+<!--#1-->
+	   <li class="slider-item">
+            <div class="collection-card card" data-image="https://files.catbox.moe/ijrwpm.jpg" data-caption="Freetalk Vtuber Thumbnail">
+              <figure class="card-banner img-holder" style="--width: 500; --height: 500;">
+                <img src="https://files.catbox.moe/ijrwpm.jpg" width="500" height="500" loading="lazy"
+                  alt="Design Collection" class="img-cover">
+              </figure>
+              <div class="card-content">
+                <div class="card-profile">
+                  <img src="https://files.catbox.moe/u0dokj.jpg" width="64" height="64" loading="lazy" alt="kika">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="title-md card-title">
+                  <a class="link:h">Freetalk Vtuber Thumbnail</a>
+                </h3>
+                <p class="label-md card-author">by <a class="link">@azukaharuka</a></p>
+              </div>
+            </div>
+          </li>
+<!--#1-->
+	<li class="slider-item">
+            <div class="collection-card card" data-image="https://files.catbox.moe/gy2cpp.jpg" data-caption="Envious">
+              <figure class="card-banner img-holder" style="--width: 500; --height: 500;">
+                <img src="https://files.catbox.moe/gy2cpp.jpg" width="500" height="500" loading="lazy"
+                  alt="Abstract Collection" class="img-cover">
+              </figure>
+              <div class="card-content">
+                <div class="card-profile">
+                  <img src="https://files.catbox.moe/0av5by.jpg" width="64" height="64" loading="lazy" alt="nafooru">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="title-md card-title">
+                  <a class="link:h">Envious</a>
+                </h3>
+                <p class="label-md card-author">by <a class="link">@equilawork</a></p>
+              </div>
+            </div>
+          </li>
+<!--#1-->
+	<li class="slider-item">
+            <div class="collection-card card" data-image="https://files.catbox.moe/vqbk3q.png" data-caption="3D Art - Paranoia">
+              <figure class="card-banner img-holder" style="--width: 500; --height: 500;">
+                <img src="https://files.catbox.moe/vqbk3q.png" width="500" height="500" loading="lazy"
+                  alt="Animations Collection" class="img-cover">
+              </figure>
+              <div class="card-content">
+                <div class="card-profile">
+                  <img src="https://files.catbox.moe/aw6w9j.gif" width="64" height="64" loading="lazy" alt="gopalasu">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="title-md card-title">
+                  <a class="link:h">3D Art - Paranoia</a>
+                </h3>
+                <p class="label-md card-author">by <a class="link">@gopalasu</a></p>
+              </div>
+            </div>
+          </li>
+<!--#1-->
+	
+            </ul>
+
+            <button class="slider-btn prev" aria-label="Slide to previous item" data-slider-prev>
+              <ion-icon name="chevron-back-sharp" aria-hidden="true"></ion-icon>
+            </button>
+
+            <button class="slider-btn next" aria-label="Slide to next item" data-slider-next>
+              <ion-icon name="chevron-forward-sharp" aria-hidden="true"></ion-icon>
+            </button>
+
+          </div>
+
+          <a href="/collection" class="btn-link link:hover">
+            <span class="span">See More</span>
+
+            <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+          </a>
+
+        </div>
+      </section>
+
+<div id="imageModal" class="modal">
     <div class="modal-content">
       <span id="closeModal" class="close">&times;</span>
       <img id="modalImage" class="modal-image" src="" alt="Preview Image">
@@ -62,13 +205,20 @@
     </div>
   </div>
 
+
+
+      <!-- 
+        - #DISCOVER ITEM
+      -->
+  <!-- Modal for Image Preview -->
+  
   <section class="section contact" aria-label="contact">
     <div class="container">
       <h2 class="headline-md section-title text-center">Get in touch!</h2>
       <p class="body-md section-text text-center">
         More than just a gallery. It's a creative community where art and technology meet.
       </p>
-      <a href="#" class="btn btn-primary"><span class="span">Follow us</span></a>
+      <a href="https://www.tiktok.com/@redflagboyz_?_t=8s21LKFWuSm&_r=1" class="btn btn-primary"><span class="span">Follow us</span></a>
     </div>
   </section>
 
@@ -82,84 +232,48 @@
     <ion-icon name="arrow-up"></ion-icon>
   </a>
 
-  <script>
-    async function loadGallery() {
-      try {
-        const response = await fetch('/gallery');
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const gallery = await response.json();
-        const galleryContainer = document.getElementById('gallery-container');
-        const showMoreBtn = document.getElementById('show-more-btn');
-
-        let itemsToShow = 3; // Initial number of items to show
-        let currentIndex = 0;
-
-        function renderGallery() {
-          const items = gallery.slice(0, currentIndex + itemsToShow);
-          galleryContainer.innerHTML = items
-            .map(
-              (item) => `
-                <li>
-                  <div class="discover-card card">
-                    <div class="card-banner img-holder" style="--width: 500; --height: 500;">
-                      <img src="${item.imgUrl}" width="500" height="500" loading="lazy" alt="${item.username}" class="img-cover" onclick="openModal('${item.imgUrl}', '${item.caption}')">
-                    </div>
-                    <div class="card-profile">
-                      <img src="https://files.catbox.moe/z8uqjv.jpg" width="32" height="32" loading="lazy" alt="rb profile" class="img">
-                      <a class="link:hover">@${item.username}</a>
-                    </div>
-                    <h3 class="title-sm card-title">
-                </h3>
-                    <div class="card-meta">
-                      <div class="card-price"><span class="span">${item.caption}</span></div>
-                    </div>
-                  </div>
-                </li>
-              `
-            )
-            .join('');
-
-          if (currentIndex + itemsToShow >= gallery.length) {
-            showMoreBtn.textContent = 'No More';
-            showMoreBtn.disabled = true;
-            showMoreBtn.style.cursor = 'not-allowed';
-          }
-        }
-
-        renderGallery();
-
-        showMoreBtn.addEventListener('click', () => {
-          currentIndex += itemsToShow;
-          renderGallery();
-        });
-      } catch (error) {
-        console.error('Error loading gallery:', error);
-        alert('Failed to load gallery. Please try again later.');
-      }
-    }
-
+<script>
+    // Function to open modal
     function openModal(imageUrl, caption) {
-      document.getElementById('modalImage').src = imageUrl;
-      document.getElementById('modalCaption').innerText = caption;
-      document.getElementById('imageModal').style.display = 'flex';
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
+
+      modalImage.src = imageUrl; // Set image URL
+      modalCaption.textContent = caption; // Set caption
+      modal.style.display = 'flex'; // Display modal
     }
 
-    document.getElementById('closeModal').addEventListener('click', function () {
-      document.getElementById('imageModal').style.display = 'none';
+    // Function to close modal
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
+    }
+
+    // Add event listeners for modal functionality
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+
+    window.addEventListener('click', function (event) {
+      const modal = document.getElementById('imageModal');
+      if (event.target === modal) {
+        closeModal();
+      }
     });
 
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('imageModal')) {
-        document.getElementById('imageModal').style.display = 'none';
-      }
-    };
-
-    document.addEventListener('DOMContentLoaded', loadGallery);
+    // Add click event to elements with class 'collection-card card'
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('.collection-card.card');
+      cards.forEach((card) => {
+        card.addEventListener('click', function () {
+          const imageUrl = card.getAttribute('data-image'); // Get image URL from data attribute
+          const caption = card.getAttribute('data-caption'); // Get caption from data attribute
+          openModal(imageUrl, caption);
+        });
+      });
+    });
   </script>
-	  <script src="./js/script.js"></script>
+  
+    <script src="./js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

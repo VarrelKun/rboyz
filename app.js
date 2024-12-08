@@ -81,6 +81,10 @@ app.get('/member', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'member.html'));
 });
 
+app.get('/rec', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'rec.html'));
+});
+
 // Rute untuk galeri
 app.get('/gallery', async (req, res) => {
   try {

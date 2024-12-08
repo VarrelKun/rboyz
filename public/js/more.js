@@ -9,7 +9,7 @@ async function loadGallery() {
         const galleryContainer = document.getElementById('gallery-container');
         const showMoreBtn = document.getElementById('show-more-btn');
 
-        let itemsToShow = 3; // Initial number of items to show
+        let itemsToShow = 4; // Initial number of items to show
         let currentIndex = 0;
 
         function renderGallery() {

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>Upload Photo & Add Member</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Upload Photo</h1>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required />
+
+    <label for="caption">Caption:</label>
+    <input type="text" id="caption" name="caption" required />
+
+    <label for="pfpUrl">Profile Picture URL:</label>
+    <input type="url" id="pfpUrl" name="pfpUrl" required />
+
+    <label for="imgUrl">Image URL:</label>
+    <input type="url" id="imgUrl" name="imgUrl" required />
+
+    <button type="submit">Upload</button>
+  </form>
+  <a href="/">Back to Gallery</a>
+</div>
+
+<div class="container">
+  <h1>Add Member</h1>
+  <form action="/addmem" method="POST">
+    <label for="add-username">Username:</label>
+    <input type="text" id="add-username" name="username" required />
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="pfp">Profile Picture URL:</label>
+    <input type="url" id="pfp" name="pfp" required />
+
+    <button type="submit">Add Member</button>
+  </form>
+  <a href="/">Back to Gallery</a>
+</div>
+
+</body>
+</html>

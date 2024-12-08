@@ -275,7 +275,7 @@ body {
 .section-title { margin-block-end: 44px; }
 
 .card {
-  background-color: var(--oxford-blue-2);
+  background-color: #400303;
   border-radius: var(--radius-8);
 }
 
@@ -457,7 +457,7 @@ body {
   width: 64px;
   margin-block-start: -50px;
   box-shadow: var(--shadow-2);
-  background-color: var(--oxford-blue);
+  
 }
 
 .collection-card .card-profile img { border-radius: var(--radius-6); }
@@ -664,7 +664,6 @@ body {
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background-color: #410D02;
 }
 
 .seller-card .card-banner {

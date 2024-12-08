@@ -664,12 +664,11 @@ body {
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background-color: #ffffff;
 }
 
 .seller-card .card-banner {
   position: relative;
-  background-color: #ffffff;
+  background-color: #400303;
 }
 
 .seller-card .card-banner img { border-radius: inherit; }
@@ -679,7 +678,7 @@ body {
   top: -4px;
   right: -8px;
   font-size: 2rem;
-  color: #ffffff;
+  color: #400303;
 }
 
 .seller-card .user-name { margin-block-start: 2px; }
